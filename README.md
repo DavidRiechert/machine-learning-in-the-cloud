@@ -7,6 +7,7 @@ General Notes:
 - lines with $ in front relate to commands in a terminal
 - UPPER_CASE_VALUES are to be replaced with actual operational values
 - check disk space $ df -h
+- check file size inside folder $ ls -lh
 
 
 1. CREATE AWS EC2 INSTANCE
@@ -44,17 +45,17 @@ General Notes:
      - $ jupyter notebook
        
      - Open a second terminal and enter the following to allow accessint jupyter notebook through local browser
-     - $ ssh -v -N -L localhost:8888:localhost:8888 -i "YOUR_KEY" EC2-USER@YOUR-EC-IP
+     - $ ssh -v -N -L localhost:8888:localhost:8888 -i "YOUR_KEY" ubuntu@YOUR_PUBLIC_IPv4-DNS
      - open a browser tap and go to localhost:8888
      - enter the jupyter notebook token provided by the console
 
-      IMPORTING FILES/FOLDERS TO LINUX
+      IMPORTING ENTIRE FOLDERS TO LINUX
       Paste the following command in a terminal on your local machine 
 
-      - $ ssh -v -i PATH_TO/YOUR_KEY.pem ubuntu@YOUR_PUBLIC_IPv4-DNS
+      - $ scp -i YOUR_PATH/YOUR_KEY.pem -r SOURCE_FOLDER_PATH_ON_LOCAL_MACHINE ubuntu@YOUR_PUBLIC_IPv4-DNS:/YOUR_DESTINATION_PATH
   
-      INSTALL PROTOCOL BUFFERS (protoc 3.20.3) manuall on Linux
-      - $ sudo apt-get update
+      INSTALL PROTOCOL BUFFERS (protoc 3.20.3) manually on Linux
+      - $ sudo apt-get updatep
       - $ sudo apt-get install autoconf automake libtool curl make g++ unzip
       - $ curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.20.3/protobuf-all-3.20.3.tar.gz
       - $ tar -xvzf protobuf-all-3.20.3.tar.gz
@@ -64,6 +65,10 @@ General Notes:
       - $ make check
       - $ sudo make install
       - $ sudo lgconfig
+
+  
+      UPDATE LIBRARY
+      - $ apt-get update && apt-get install libgl1
 
 
 

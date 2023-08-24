@@ -27,19 +27,45 @@ General Notes:
      - $ mkdir tmp
      - $ cd tmp
      - Anaconda 3 Version 2023.07-2 (https://repo.anaconda.com/archive/)
-     - $ wget https://repo.anaconda.com/archive/Anaconda3-2023.07-2-Linux-x86_64.sh
-     - $ chmod +x Anaconda3-2023.07-2-Linux-x86_64.sh./Anaconda3-2023.07-2-Linux-x86_64.sh
+       
+     - $ wget https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh
+     - ($ wget https://repo.anaconda.com/archive/Anaconda3-2023.07-2-Linux-x86_64.sh) python 3.11.4
+     - $ chmod +x Anaconda3-2021.11-Linux-x86_64.sh
+./Anaconda3-2021.11-Linux-x86_64.sh
+     - ($ chmod +x Anaconda3-2023.07-2-Linux-x86_64.sh./Anaconda3-2023.07-2-Linux-x86_64.sh) python 3.11.4
+       
      - accept the license and allow base environment on startup
      - $ sudo reboot
      - $ ssh -i "YOUR_KEY.pem" ubuntu@YOUR_PUBLIC_IPv4-DNS
+     - $ python -m pip install --upgrade pip
      - $ mkdir PROJECT_NAME
      - $ cd PROJECT_NAME
+     - $ git clone https://github.com/nicknochnack/TFODCourse .
      - $ jupyter notebook
        
      - Open a second terminal and enter the following to allow accessint jupyter notebook through local browser
      - $ ssh -v -N -L localhost:8888:localhost:8888 -i "YOUR_KEY" EC2-USER@YOUR-EC-IP
      - open a browser tap and go to localhost:8888
      - enter the jupyter notebook token provided by the console
-       
+
+      IMPORTING FILES/FOLDERS TO LINUX
+      Paste the following command in a terminal on your local machine 
+
+      - $ ssh -v -i PATH_TO/YOUR_KEY.pem ubuntu@YOUR_PUBLIC_IPv4-DNS
+  
+      INSTALL PROTOCOL BUFFERS (protoc 3.20.3) manuall on Linux
+      - $ sudo apt-get update
+      - $ sudo apt-get install autoconf automake libtool curl make g++ unzip
+      - $ curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.20.3/protobuf-all-3.20.3.tar.gz
+      - $ tar -xvzf protobuf-all-3.20.3.tar.gz
+      - $ cd protobuf-3.20.3
+      - $ ./configure
+      - $ make
+      - $ make check
+      - $ sudo make install
+      - $ sudo lgconfig
+
+
+
   
        
